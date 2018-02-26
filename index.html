@@ -18,10 +18,15 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
     crossorigin="anonymous">
 
-  <!-- Latest compiled and minified JavaScript -->
+<!-- Latest compiled and minified JavaScript Lucia-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- Latest compiled and minified JavaScript Lucia-->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
     crossorigin="anonymous"></script>
-
+<!-- Firestore Base de Datos lucia-->
+<script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.8.1/firebase-firestore.js"></script>
+<!-- Firestore Base de Datos lucia-->
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 </head>
 
@@ -35,10 +40,77 @@
               <a class="links" href="#">Wish List</a>
             </li>
             <li class="upper-links">
-              <a class="links" href="#">Sign In</a>
+               <!-- Button trigger modal ingreso lucia-->
+              <a class="links" data-toggle="modal" data-target="#signInModal" href="#">Sign In</a>
+              <!-- Modal lucia-->
+              <div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title" id="myModalLabel">Sign in</h4>
+                    </div>
+                    <div class="modal-body">
+                      <form>
+                        <div class="form-group">
+                          <label for="email">Email:</label>
+                          <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+                        </div>
+                        <div class="form-group">
+                          <label for="pwd">Password:</label>
+                          <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
+                        </div>
+                      </form>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-primary">Sign in</button>
+                    </div>
+                  </div>
+                </div>
+              </div> <!-- fin modal ingreso lucia -->
             </li>
             <li class="upper-links">
-              <a class="links" href="#">Register</a>
+             <!-- Button trigger modal registro lucia-->
+              <a class="links" data-toggle="modal" data-target="#registerModal" href="#">Register</a>
+              <!-- Modal lucia -->
+              <div class="modal fade " id="registerModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title" id="myModalLabel">Register</h4>
+                    </div>
+                    <div class="modal-body">
+                      <form>
+                        <div class="form-group">
+                          <label for="name">Name:</label>
+                          <input type="text" class="form-control" id="name" placeholder="Enter name" name="name">
+                        </div>
+                        <div class="form-group">
+                          <label for="lastName">Last Name:</label>
+                          <input type="text" class="form-control" id="lastName" placeholder="Enter last name" name="lastName">
+                        </div>
+                        <div class="form-group">
+                          <label for="address">Address:</label>
+                          <input type="text" class="form-control" id="address" placeholder="Enter address" name="address">
+                        </div>
+                        <div class="form-group">
+                          <label for="email">Email:</label>
+                          <input type="email" class="form-control" id="email2" placeholder="Enter email" name="email">
+                        </div>
+                        <div class="form-group">
+                          <label for="pwd">Password:</label>
+                          <input type="password" class="form-control" id="pwd2" placeholder="Enter password" name="pwd">
+                        </div>
+                      </form>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                      <button type="button" id='btnCreate Account' class="btn btn-primary">Create Account</button>
+                    </div>
+                  </div>
+                </div>
+              </div> <!-- fin modal registro lucia-->
             </li>
             <li class="upper-links">
               <a class="links" href="#">Pedidos</a>
@@ -178,7 +250,24 @@
   <section class="cartt">
     <p>100</p>
   </section>
+<!-- lucia -->
+<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAmkjOzP-gCKgvNm0kEJCYWd56GcGncmss",
+    authDomain: "ecommerce-7b26c.firebaseapp.com",
+    databaseURL: "https://ecommerce-7b26c.firebaseio.com",
+    projectId: "ecommerce-7b26c",
+    storageBucket: "",
+    messagingSenderId: "101587609471"
+  };
+  firebase.initializeApp(config);
+</script>
+<!-- lucia -->
   <script src="assets/js/app.js"></script>
+<script src="assets/js/firebase.js"></script>
+<!-- lucia -->
 </body>
 
 </html>
