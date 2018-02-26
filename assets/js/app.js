@@ -479,3 +479,23 @@ $(document).ready(function() {
 });
 
 /* -------------------------------------------- */
+/* carrusel */
+let slideList = document.getElementById('slideList');
+let numImages = 6;
+for (let i = 0; i < numImages; i++) {
+  let dataSlide = document.createElement('li');
+  dataSlide.setAttribute('data-target', '#myCarousel');
+  dataSlide.setAttribute('data-slide-to', i + 1);
+  slideList.appendChild(dataSlide);
+}
+let Carousel = document.getElementById('carousel-inner');
+for (let i = 0; i < numImages; i++) {
+  let divItem = document.createElement('div');
+  divItem.className = 'item';
+  let imgItem = document.createElement('img');
+  imgItem.className = 'responsive';
+  imgItem.setAttribute('src', 'assets/images/slider/0' + i++ + '.jpg');
+
+  Carousel.appendChild(divItem);
+  divItem.appendChild(imgItem);
+}
