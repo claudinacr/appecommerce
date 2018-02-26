@@ -221,9 +221,6 @@
     color: #fff;
 }
 
-* {
-    color: #ffffff !important;
-}
 
 a:focus,
 a:hover {
@@ -521,3 +518,8 @@ a{
   float: right;
 }
 /* --------------------------------- */
+
+.ofertas a, .Arte a, .tecnologia a, .hogar a, .entretenimiento a{
+    color: white !important;
+    text-decoration: none;
+}
