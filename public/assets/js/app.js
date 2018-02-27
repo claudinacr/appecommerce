@@ -1,6 +1,42 @@
 let acumula = 0;
 let suma = 0;
 
+let buttonBuy = document.querySelector('.buttonBuy');
+let resultsSearchInput = document.querySelector('.resultsSearchInput');
+let inputSearch = document.querySelector('.inputSearch');
+/* CARRUSEL */
+function openNav() {
+  document.getElementById("mySidenav").style.width = "70%";
+  // document.getElementById("flipkart-navbar").style.width = "50%";
+
+  document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  document.body.style.backgroundColor = "rgba(0,0,0,0)";
+}
+
+let slideList = document.getElementById('slideList');
+let numImages = 6;
+for (let i = 0; i < numImages; i++) {
+  let dataSlide = document.createElement('li');
+  dataSlide.setAttribute('data-target', '#myCarousel');
+  dataSlide.setAttribute('data-slide-to', i + 1);
+  slideList.appendChild(dataSlide);
+}
+
+let Carousel = document.getElementById('carousel-inner');
+for (let i = 0; i < numImages; i++) {
+  let divItem = document.createElement('div');
+  divItem.className = 'item';
+  let imgItem = document.createElement('img');
+  imgItem.className = 'images';
+  imgItem.setAttribute('src', 'assets/images/slider/0' + i++ + '.jpg');
+
+  Carousel.appendChild(divItem);
+  divItem.appendChild(imgItem);
+}
 
 
 function openNav() {
@@ -252,6 +288,9 @@ fetch('https://api.mercadolibre.com/sites/MLC/search?condition=all&q=all', {
               divCart.appendChild(imag);
               let buyTitle = event.target.parentNode.parentNode.firstChild.nextSibling.firstChild.textContent;
               let pBuy = document.createElement('p');
+              let Título = document.createTextNode('Título');
+              let tituloP = document.createElement('p');
+              tituloP.appendChild(Título);
               pBuy.appendChild(document.createTextNode(buyTitle));
               divCart.appendChild(pBuy);
               let valueQuantity = selectQuantity.value;
