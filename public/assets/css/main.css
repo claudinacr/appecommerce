@@ -665,3 +665,36 @@ box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 4px 0px #186377;
     box-shadow: 0px 4px 0px #186377;
 }
+
+.buttonBuy{
+    display:inline-block;
+    font-weight: 300;
+    color: white;
+    font-style: normal;
+    font-size: 16px;
+    margin:.7rem;
+    padding: 0.5rem 1.61rem;
+    background-color: #29ABE2;
+    -webkit-box-shadow: 0px 4px 0px #186377;
+    -moz-box-shadow: 0px 4px 0px #186377;
+    box-shadow: 0px 4px 0px #186377;
+}
+
+.selectQuantity{
+    display:inline-block;
+    font-weight: 300;
+    color: white;
+    font-style: normal;
+    font-size: 16px;
+    margin:.7rem;
+    padding: 0.5rem 1.61rem;
+    background-color: #29ABE2;
+    -webkit-box-shadow: 0px 4px 0px #186377;
+    -moz-box-shadow: 0px 4px 0px #186377;
+    box-shadow: 0px 4px 0px #186377;
+    height: 2em;
+}
+
+.categoriesSelect{
+    z-index: 20000;
+}
