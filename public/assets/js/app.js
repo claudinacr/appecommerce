@@ -79,7 +79,7 @@ fetch('https://api.mercadolibre.com/sites/MLC/search?condition=all&q=all', {
       let cartt = document.querySelector('.cartt');
       cartt.style.display = 'inline';
       let enviar = document.querySelector('.enviar');
-      enviar.style.display='inline';
+      enviar.style.display = 'inline';
     });
 
     butt.addEventListener('click', function () {
@@ -227,8 +227,6 @@ fetch('https://api.mercadolibre.com/sites/MLC/search?condition=all&q=all', {
             divimageTitle.appendChild(divImag)
             divimageTitle.appendChild(divTexts)
 
-
-
             detailProduct.appendChild(divimageTitle);
 
             let cart = document.querySelector('cart');
@@ -356,7 +354,7 @@ fetch('https://api.mercadolibre.com/sites/MLC/categories', {
     listCategories = info;
     console.log(info);
 
-     let cartUp = document.querySelector(".cartUp");
+    let cartUp = document.querySelector(".cartUp");
     let resultsSearchInput = document.querySelector('.resultsSearchInput');
 
 
@@ -368,7 +366,7 @@ fetch('https://api.mercadolibre.com/sites/MLC/categories', {
       let cartt = document.querySelector('.cartt');
       cartt.style.display = 'inline';
       let enviar = document.querySelector('.enviar');
-      enviar.style.display='inline';
+      enviar.style.display = 'inline';
     });
 
     let categoriesSelect = document.querySelector('.categoriesSelect');
@@ -403,21 +401,18 @@ categoriesSelect.addEventListener('change', function () {
       console.log('p', info);
 
       let cartUp = document.querySelector(".cartUp");
-    let resultsSearchInput = document.querySelector('.resultsSearchInput');
+      let resultsSearchInput = document.querySelector('.resultsSearchInput');
 
+      cartUp.addEventListener('click', function () {
+        resultsSearchInput.style.display = 'none';
 
-    
-
-    cartUp.addEventListener('click', function () {
-      resultsSearchInput.style.display = 'none';
-
-      let Totales = document.querySelector('.Totales');
-      Totales.style.display = 'inline';
-      let cartt = document.querySelector('.cartt');
-      cartt.style.display = 'inline';
-      let enviar = document.querySelector('.enviar');
-      enviar.style.display='inline';
-    });
+        let Totales = document.querySelector('.Totales');
+        Totales.style.display = 'inline';
+        let cartt = document.querySelector('.cartt');
+        cartt.style.display = 'inline';
+        let enviar = document.querySelector('.enviar');
+        enviar.style.display = 'inline';
+      });
 
       resultsSearchInput.innerHTML = '';
 
@@ -459,15 +454,12 @@ categoriesSelect.addEventListener('change', function () {
         divAvailable = document.createElement('div');
         divAvailable.appendChild(pAvailable);
 
-
         divResultsInput.appendChild(divImages);
         divResultsInput.appendChild(divTitle);
         divResultsInput.appendChild(divPrice);
         divResultsInput.appendChild(divAvailable);
 
-
         resultsSearchInput.appendChild(divResultsInput);
-
 
         let detailProduct = document.querySelector('.detailProduct');
 
@@ -533,7 +525,6 @@ categoriesSelect.addEventListener('change', function () {
               buttonBuy.className = 'buttonBuy';
               divTexts.appendChild(buttonBuy);
 
-
               let precioNormal = info.results[index].original_price;
               if (precioNormal === null) {
                 let oferta = document.createTextNode('No posee oferta');
@@ -556,7 +547,6 @@ categoriesSelect.addEventListener('change', function () {
           let titulo = event.target.parentNode.parentNode.firstChild.nextSibling.firstChild.textContent;
           let imagenBuy = event.target.parentNode.parentNode.firstChild.firstChild.getAttribute('src');
           console.log(imagenBuy);
-
 
           for (let z = 0; z < info.results.length; z++) {
             if (titulo === info.results[z].title) {
@@ -595,7 +585,6 @@ categoriesSelect.addEventListener('change', function () {
             let enviar = document.querySelector('.enviar');
             enviar.style.display = 'none';
             let itemNumber = document.querySelector('.item-number');
-
 
             let numerActual = itemNumber.textContent;
             let actual = parseInt(numerActual) + 1;
@@ -658,7 +647,6 @@ categoriesSelect.addEventListener('change', function () {
             totalP.textContent = suma;
             document.getElementById('Enviar').value = suma;
             console.log(document.getElementById('Enviar').value);
-
 
           })
 
@@ -780,8 +768,6 @@ $(document).ready(function () {
             });
         });
     });
-
-
 })
 
 let navbarBack = document.querySelector('.navbarBack');
@@ -808,21 +794,20 @@ navbarBack.addEventListener('click', function () {
       resultsSearchInput.innerHTML = '';
 
       let cartUp = document.querySelector(".cartUp");
-  
-  
+
+
       cartUp.addEventListener('click', function () {
         resultsSearchInput.style.display = 'none';
-  
+
         let Totales = document.querySelector('.Totales');
         Totales.style.display = 'inline';
         let cartt = document.querySelector('.cartt');
         cartt.style.display = 'inline';
         let enviar = document.querySelector('.enviar');
-        enviar.style.display='inline';
+        enviar.style.display = 'inline';
       });
 
       //Hacer imagenes de acuerdo a la escogencia del usuario
-
 
       //Inicio
       for (let k = 0; k < info.results.length; k++) {
@@ -867,34 +852,6 @@ navbarBack.addEventListener('click', function () {
         pAvailable.appendChild(availableProduc);
         divAvailable = document.createElement('div');
         divAvailable.appendChild(pAvailable);
-
-        // let divButton = document.createElement('div');
-        // let buttonCart = document.createElement('button');
-        // buttonCart.className = 'buttonCart';
-        // buttonCart.appendChild(document.createTextNode('Add to Cart'));
-        // divButton.appendChild(buttonCart);
-
-        // let itemNumber = document.querySelector('.item-number');
-        // let WishList = document.querySelector('.WishList');
-
-        // buttonCart.addEventListener('click', function () {
-
-        //   let element = event.target.parentNode.parentNode.firstChild.nextSibling.firstChild.textContent;
-        //   let itemNumber = document.querySelector('.item-number');
-        //   let divWish = document.createElement('div');
-        //   let textDivWish = document.createElement('p');
-
-        //   let text = document.createTextNode(element);
-        //   textDivWish.appendChild(text);
-        //   divWish.appendChild(textDivWish);
-        //   WishList.appendChild(divWish);
-
-
-        //   let numerActual = itemNumber.textContent;
-        //   let actual = parseInt(numerActual) + 1;
-        //   itemNumber.innerHTML = '';
-        //   itemNumber.appendChild(document.createTextNode(actual));
-        // })
 
         divResultsInput.appendChild(divImages);
         divResultsInput.appendChild(divTitle);
@@ -967,17 +924,6 @@ navbarBack.addEventListener('click', function () {
               pShiping.appendChild(pshiping);
               divTexts.appendChild(pShiping);
 
-              // let titulo = event.target.parentNode.parentNode.firstChild.nextSibling.firstChild.textContent;
-              // let imagenBuy = event.target.parentNode.parentNode.firstChild.firstChild.getAttribute('src');
-              // console.log(imagenBuy);
-
-
-
-
-
-
-
-
               let buttonBuy = document.createElement('button');
               buttonBuy.appendChild(document.createTextNode('Comprar'));
               buttonBuy.className = 'buttonBuy';
@@ -991,20 +937,11 @@ navbarBack.addEventListener('click', function () {
                 let oferta = document.createTextNode('Posee oferta');
               }
               let precioActual = info.results[index].price;
-
-
-
-
-
             }
 
           }
-
-
-
           divimageTitle.appendChild(divImag)
           divimageTitle.appendChild(divTexts)
-
 
           detailProduct.appendChild(divimageTitle);
 
@@ -1015,8 +952,6 @@ navbarBack.addEventListener('click', function () {
           let titulo = event.target.parentNode.parentNode.firstChild.nextSibling.firstChild.textContent;
           let imagenBuy = event.target.parentNode.parentNode.firstChild.firstChild.getAttribute('src');
           console.log(imagenBuy);
-
-
 
           for (let z = 0; z < info.results.length; z++) {
             if (titulo === info.results[z].title) {
@@ -1046,8 +981,6 @@ navbarBack.addEventListener('click', function () {
           let itemNumber = document.querySelector('.item-number');
 
           buttonBuy.addEventListener('click', function () {
-           
-
 
             let Totales = document.querySelector('.Totales');
             Totales.style.display = 'none';
@@ -1057,36 +990,10 @@ navbarBack.addEventListener('click', function () {
             enviar.style.display = 'none';
             let itemNumber = document.querySelector('.item-number');
 
-
-
-
             let numerActual = itemNumber.textContent;
             let actual = parseInt(numerActual) + 1;
             itemNumber.innerHTML = '';
             itemNumber.appendChild(document.createTextNode(actual));
-            /*
-            let itemNumber = document.querySelector('.item-number');
-
-                        buttonBuy.addEventListener('click', function () {
-
-                  
-
-                      let itemNumber = document.querySelector('.item-number');
-                      
-
-                    
-
-
-                      let numerActual = itemNumber.textContent;
-                      let actual = parseInt(numerActual) + 1;
-                      itemNumber.innerHTML = '';
-                      itemNumber.appendChild(document.createTextNode(actual));
-            */
-
-
-
-
-
 
             let imag = document.createElement('img');
             imag.setAttribute('src', event.target.parentNode.parentNode.firstChild.firstChild.getAttribute('src'));
@@ -1147,10 +1054,6 @@ navbarBack.addEventListener('click', function () {
 
           })
 
-
-          //Inicio
-
-
           buttonBuy.addEventListener('click', function () {
 
             let Totales = document.querySelector('.Totales');
@@ -1160,8 +1063,6 @@ navbarBack.addEventListener('click', function () {
             let enviar = document.querySelector('.enviar');
             enviar.style.display = 'none';
             let itemNumber = document.querySelector('.item-number');
-
-
 
             let imag = document.createElement('img');
             imag.setAttribute('src', event.target.parentNode.parentNode.firstChild.firstChild.getAttribute('src'));
@@ -1207,101 +1108,7 @@ navbarBack.addEventListener('click', function () {
             document.getElementById('Enviar').value = suma;
             console.log(document.getElementById('Enviar').value);
           })
-
-          //Fin
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-          // })
-
-
         })
-
       }
-
-
-
-
     })
-
 })
-
-//Fin
