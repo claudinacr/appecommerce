@@ -55,6 +55,11 @@ function observador() {
       var isAnonymous = user.isAnonymous;
       var uid = user.uid;
       var providerData = user.providerData;
+      // let welcome = document.getElementById('welcome');
+      /* welcome.append = `<li><a class="user" href="#">Bienvenido, ${user.email}</a></li>
+              <li><a onclick="cerrar()" href="#">Log out</a></li>`; */
+      $('#welcome').append(`<li class="upper-links"><a class=".links" href="#">Bienvenido, ${user.email}</a></li>
+              <li class="upper-links"><a class="links" onclick="cerrar()" href="#">Log out</a></li>`);
     } else {
       // No user is signed in.
       console.log('No existe usuario activo');
@@ -62,7 +67,6 @@ function observador() {
   });
 }
 observador(); // se ejecuta cuando se carga la documento
-
 
 // Funcion para desloguearse 
 $('#btnSignOut').click(function() {
@@ -90,4 +94,5 @@ function verificarEmail() {
       console.log(error); // pinta error de verificación
     });
 }
+
 /* --------------------------------------------------------------------------------------------------------------- */
