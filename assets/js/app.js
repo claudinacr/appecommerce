@@ -479,7 +479,7 @@ $(document).ready(function() {
 });
 
 /* -------------------------------------------- */
-/* carrusel */
+/* carrusel lucia*/
 let slideList = document.getElementById('slideList');
 let numImages = 6;
 for (let i = 0; i < numImages; i++) {
@@ -493,9 +493,9 @@ for (let i = 0; i < numImages; i++) {
   let divItem = document.createElement('div');
   divItem.className = 'item';
   let imgItem = document.createElement('img');
-  imgItem.className = 'responsive';
+  imgItem.className = 'images';
   imgItem.setAttribute('src', 'assets/images/slider/0' + i++ + '.jpg');
 
   Carousel.appendChild(divItem);
   divItem.appendChild(imgItem);
-}
+}/* Fin carrusel lucia*/
