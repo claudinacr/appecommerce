@@ -1,7 +1,7 @@
 /* Login Firebase */
 // Registro de nuevos usuarios*/
 let register = document.getElementById('btnCreateAccount');
-function registrar() {
+register.addEventListener('click', function() {
   console.log('diste click en Ingresar');
   let email2 = document.getElementById('email2').value;
   let password2 = document.getElementById('pwd2').value;
@@ -19,8 +19,8 @@ function registrar() {
       // console.log(errorMessage);
       alert(error.code);
     });
-};
-register.addEventListener('click', registrar());
+});
+
 // Ingreso usuarios o logueo
 let signin = document.getElementById('btnSignIn');
 register.addEventListener('click', ingresar());
