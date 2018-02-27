@@ -1,8 +1,12 @@
 let acumula = 0;
 let suma = 0;
 
+
+
 function openNav() {
   document.getElementById("mySidenav").style.width = "70%";
+  // document.getElementById("flipkart-navbar").style.width = "50%";
+
   document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
 }
 
@@ -30,12 +34,17 @@ fetch('https://api.mercadolibre.com/sites/MLC/search?condition=all&q=all', {
     let cartUp = document.querySelector(".cartUp");
     let resultsSearchInput = document.querySelector('.resultsSearchInput');
 
-    cartUp.addEventListener('click', function () {
-      // let cartt = document.querySelector('.cartt');
-      // cartt.style.display = 'inline';
-    });
+
+    cartUp.addEventListener('click', function(){
+      resultsSearchInput.style.display = 'none';
+let Totales = document.querySelector('.Totales');
+Totales.style.display = 'inline';
+let cartt = document.querySelector('.cartt');
+cartt.style.display = 'none';
+    });    
 
     butt.addEventListener('click', function () {
+      
 
       resultsSearchInput.innerHTML = '';
       let valueFlip = (inputSearch.value);
@@ -91,16 +100,17 @@ fetch('https://api.mercadolibre.com/sites/MLC/search?condition=all&q=all', {
           divResultsInput.appendChild(divTitle);
           divResultsInput.appendChild(divPrice);
           divResultsInput.appendChild(divAvailable);
+
           resultsSearchInput.appendChild(divResultsInput);
 
           let detailProduct = document.querySelector('.detailProduct');
 
           image.addEventListener('click', function () {
             resultsSearchInput.style.display = 'none';
+
             let enviar = document.querySelector('.enviar');
             enviar.style.display = 'none';
             detailProduct.innerHTML = '';
-            
 
             let divimageTitle = document.createElement('div');
             divimageTitle.className = 'divimageTitle';
@@ -110,6 +120,7 @@ fetch('https://api.mercadolibre.com/sites/MLC/search?condition=all&q=all', {
             divImag.appendChild(imag);
             divImag.className = 'divImag';
             imag.className = 'imagenP';
+
 
             let divTexts = document.createElement('div');
             let titleDetail = event.target.parentNode.parentNode.firstChild.nextSibling.firstChild.textContent;
@@ -155,10 +166,12 @@ fetch('https://api.mercadolibre.com/sites/MLC/search?condition=all&q=all', {
                 pShiping.appendChild(pshiping);
                 divTexts.appendChild(pShiping);
 
+
                 let buttonBuy = document.createElement('button');
                 buttonBuy.appendChild(document.createTextNode('Comprar'));
                 buttonBuy.className = 'buttonBuy';
                 divTexts.appendChild(buttonBuy);
+
 
                 let precioNormal = listCateg.results[index].original_price;
                 if (precioNormal === null) {
@@ -168,9 +181,14 @@ fetch('https://api.mercadolibre.com/sites/MLC/search?condition=all&q=all', {
                 }
                 let precioActual = listCateg.results[index].price;
               }
+
+
             }
+
             divimageTitle.appendChild(divImag)
             divimageTitle.appendChild(divTexts)
+
+
 
             detailProduct.appendChild(divimageTitle);
 
@@ -196,6 +214,7 @@ fetch('https://api.mercadolibre.com/sites/MLC/search?condition=all&q=all', {
                 }
                 let divTexts = document.querySelector('.divTexts');
                 divTexts.appendChild(selectQuantity);
+
               }
             }
             let divCart = document.createElement('div');
@@ -209,6 +228,7 @@ fetch('https://api.mercadolibre.com/sites/MLC/search?condition=all&q=all', {
 
             buttonBuy.addEventListener('click', function () {
 
+
               let Totales = document.querySelector('.Totales');
               Totales.style.display = 'inline';
               let detailProduct = document.querySelector('.detailProduct');
@@ -216,12 +236,14 @@ fetch('https://api.mercadolibre.com/sites/MLC/search?condition=all&q=all', {
               let enviar = document.querySelector('.enviar');
               enviar.style.display = 'none';
 
+
               let itemNumber = document.querySelector('.item-number');
 
               let numerActual = itemNumber.textContent;
               let actual = parseInt(numerActual) + 1;
               itemNumber.innerHTML = '';
               itemNumber.appendChild(document.createTextNode(actual));
+
               let imag = document.createElement('img');
               imag.setAttribute('src', event.target.parentNode.parentNode.firstChild.firstChild.getAttribute('src'));
               divCart.appendChild(imag);
@@ -266,12 +288,14 @@ fetch('https://api.mercadolibre.com/sites/MLC/search?condition=all&q=all', {
               document.getElementById('Enviar').value = suma;
               console.log(document.getElementById('Enviar').value);
             })
+
           })
         }
       }
       inputSearch.value = '';
     })
   })
+
 
 let listCategories;
 
@@ -283,17 +307,21 @@ fetch('https://api.mercadolibre.com/sites/MLC/categories', {
     }
   })
   .then(function (respt) {
+
     return respt.json();
   })
   .then(function (info) {
     listCategories = info;
     console.log(info);
-    let cartUp = document.querySelector(".cartUp");
-    let resultsSearchInput = document.querySelector('.resultsSearchInput');
-    cartUp.addEventListener('click', function () {
+
+
+    cartUp.addEventListener('click', function(){
       resultsSearchInput.style.display = 'none';
-      let cartt = document.querySelector('.cartt');
-      cartt.style.display = 'inline';
+let Totales = document.querySelector('.Totales');
+Totales.style.display = 'inline';
+let cartt = document.querySelector('.cartt');
+cartt.style.display = 'none';
+
     });
 
     let categoriesSelect = document.querySelector('.categoriesSelect');
@@ -326,6 +354,7 @@ categoriesSelect.addEventListener('change', function () {
     })
     .then(function (info) {
       console.log('p', info);
+
       let cartUp = document.querySelector(".cartUp");
       let resultsSearchInput = document.querySelector('.resultsSearchInput');
       cartUp.addEventListener('click', function () {
@@ -376,12 +405,15 @@ categoriesSelect.addEventListener('change', function () {
         divAvailable = document.createElement('div');
         divAvailable.appendChild(pAvailable);
 
+
         divResultsInput.appendChild(divImages);
         divResultsInput.appendChild(divTitle);
         divResultsInput.appendChild(divPrice);
         divResultsInput.appendChild(divAvailable);
 
+
         resultsSearchInput.appendChild(divResultsInput);
+
 
         let detailProduct = document.querySelector('.detailProduct');
 
@@ -447,6 +479,7 @@ categoriesSelect.addEventListener('change', function () {
               buttonBuy.className = 'buttonBuy';
               divTexts.appendChild(buttonBuy);
 
+
               let precioNormal = info.results[index].original_price;
               if (precioNormal === null) {
                 let oferta = document.createTextNode('No posee oferta');
@@ -469,6 +502,7 @@ categoriesSelect.addEventListener('change', function () {
           let titulo = event.target.parentNode.parentNode.firstChild.nextSibling.firstChild.textContent;
           let imagenBuy = event.target.parentNode.parentNode.firstChild.firstChild.getAttribute('src');
           console.log(imagenBuy);
+
 
           for (let z = 0; z < info.results.length; z++) {
             if (titulo === info.results[z].title) {
@@ -498,10 +532,13 @@ categoriesSelect.addEventListener('change', function () {
           let itemNumber = document.querySelector('.item-number');
 
           buttonBuy.addEventListener('click', function () {
-            let Totales = document.querySelector('.Totales');
-            Totales.style.display = 'none';
 
+
+            let Totales = document.querySelector('.Totales');
+            Totales.style.display='inline';
             let itemNumber = document.querySelector('.item-number');
+
+
             let numerActual = itemNumber.textContent;
             let actual = parseInt(numerActual) + 1;
             itemNumber.innerHTML = '';
@@ -563,6 +600,130 @@ categoriesSelect.addEventListener('change', function () {
             totalP.textContent = suma;
             document.getElementById('Enviar').value = suma;
             console.log(document.getElementById('Enviar').value);
+
+
+          })
+
+        })
+
+      }
+    })
+
+})
+
+
+$(document).ready(function(){
+
+/* Llamando a la api de mercadolibre, categoría electrodomésticos */
+fetch('https://api.mercadolibre.com/sites/MLA/search?category=MLA5726')
+
+    .then(function (response) {
+        //Turns the the JSON into a JS object
+        return response.json();
+    })
+    .then(function (data) {
+        //console.log(data);
+        
+/* Creando en la sección ofertas de html un contenedor con imagenes, título, precio y disponibilidad del producto */
+    $('#sectionOffers').append('<div class="container-fluid"><div class="row"><div class="col-md-12">'+
+    '<h3>Ofertas recomendadas para ti</h3></div></div></div><div class="container-fluid">'+
+    '<div class="row"><div class="col-md-2"><a href="#"><img class="imgOffers" src="'+data.results[0].thumbnail+'"></a>'+
+    '<p class="productTitle"><strong>'+data.results[0].title+'</strong></p><p class="priceOffers">$ '+data.results[0].price+'</p>'+
+    '<h4><strong>Disponibilidad: '+data.results[0].available_quantity+'</strong></h4><a class="viewMore op1" href="#"><p class="toCart">View More</p></a></div>'+
+    '<div class="col-md-2"><a href="#"><img class="imgOffers" src="'+data.results[1].thumbnail+'"></a><p class="productTitle"><strong>'+data.results[1].title+'</strong></p>'+
+    '<p class="priceOffers">$ '+data.results[1].price+'</p><h4><strong>Disponibilidad: '+data.results[1].available_quantity+'</strong></h4><a class="viewMore op2" href="#"><p class="toCart">View More</p>'+
+    '</a></div><div class="col-md-2"><a href="#"><img class="imgOffers" src="'+data.results[2].thumbnail+'">'+
+    '</a><p class="productTitle"><strong>'+data.results[2].title+'</strong></p><p class="priceOffers">$ '+data.results[2].price+'</p><h4><strong>Disponibilidad: '+data.results[2].available_quantity+'</strong></h4><a class="viewMore op3" href="#"><p class="toCart">View More</p>'+
+    '</a></div><div class="col-md-2"><a href="#"><img class="imgOffers"src="'+data.results[3].thumbnail+'"></a><p class="productTitle"><strong>'+data.results[3].title+'</strong></p>'+
+    '<p class="priceOffers">$ '+data.results[3].price+'</p><h4><strong>Disponibilidad: '+data.results[3].available_quantity+'</strong></h4><a class="viewMore op4" href="#"><p class="toCart">View More</p></a></div>'+
+    '<div class="col-md-3 col-md-offset-1 imgBorder"><a href="#"><img class="imgOffers imgRight"src="'+data.results[4].thumbnail+
+    '"></a><p class="productTitle"><strong>'+data.results[4].title+'</strong></p><p class="priceOffers offert">Precio $ '+data.results[4].price+'</p><h4><strong>Disponibilidad: '+data.results[4].available_quantity+'</strong></h4><strike><p class="priceOffers originalPrice">'+
+    'Precio original $ '+data.results[4].original_price+'</p></strike><a class="viewMore op5" href="#"><p class="toCart">View More</p></a></div>'+
+    '</div></div>');
+
+/* Creando en la sección artículos vistos de html un contenedor con imagenes, título, precio y disponibilidad del producto */
+    $('#sectionSeen').append('<div class="container-fluid"><div class="row"><div class="col-md-12"><h3>Relacionado con los artículos que has visto'+
+    '</h3></div></div></div><div class="container-fluid"><div class="row"><div class="col-md-2"><a href="#"><img class="imgOffers" src="'+data.results[5].thumbnail+'">'+
+    '</a><p class="productTitle"><strong>'+data.results[5].title+'</strong></p><p class="priceOffers">$ '+data.results[5].price+'</p><h4><strong>Disponibilidad: '+data.results[5].available_quantity+'</strong></h4><a class="viewMore" href="#"><p class="toCart">View More</p></a></div><div class="col-md-2">'+
+    '<a href="#"><img class="imgOffers" src="'+data.results[6].thumbnail+'"></a><p class="productTitle"><strong>'+data.results[6].title+'</strong></p><p class="priceOffers">$ '+data.results[6].price+'</p><h4><strong>Disponibilidad: '+data.results[6].available_quantity+'</strong></h4>'+
+    '<a class="viewMore" href="#"><p class="toCart">View More</p></a></div><div class="col-md-2"><a href="#"><img class="imgOffers" src="'+data.results[7].thumbnail+'">'+
+    '</a><p class="productTitle"><strong>'+data.results[7].title+'</strong></p><p class="priceOffers">$ '+data.results[7].price+'</p><h4><strong>Disponibilidad: '+data.results[7].available_quantity+'</strong></h4><a class="viewMore" href="#"><p class="toCart">View More</p></a></div><div class="col-md-2">'+
+    '<a href="#"><img class="imgOffers" src="'+data.results[8].thumbnail+'"></a><p class="productTitle"><strong>'+data.results[8].title+'</strong></p><p class="priceOffers">$ '+data.results[8].price+'</p><h4><strong>Disponibilidad: '+data.results[8].available_quantity+'</strong></h4><a class="viewMore" href="#">'+
+    '<p class="toCart">View More</p></a></div><div class="col-md-3 col-md-offset-1 imgBorderTwo"><a href="#"><img class="imgOffers imgRight"'+
+    'src="'+data.results[12].thumbnail+'"></a><p class="productTitle"><strong>'+data.results[12].title+'</strong></p><p class="priceOffers offert">Precio $ '+data.results[12].price+'</p><strike><p class="priceOffers originalPrice">'+
+    'Precio original $ '+data.results[12].original_price+'</p></strike><a class="viewMore" href="#"><p class="toCart">View More</p></a></div></div></div>');
+
+
+/* Llamando a la api de mercadolibre, categoría tecnología */
+  fetch('https://api.mercadolibre.com/sites/MLA/search?all=new&q=dell')
+
+    .then(function (res) {
+        //Turns the the JSON into a JS object
+        return res.json();
+    })
+    .then(function (dat) {
+        //console.log(dat);
+
+/* Creando en la sección ofertas recomendadas de html un contenedor con imagenes, título, precio y disponibilidad del producto */
+   $('#sectionTechnology').append('<div class="container-fluid"><div class="row"><div class="col-md-12">'+
+    '<h3>Ofertas recomendadas para ti</h3></div></div></div><div class="container-fluid">'+
+    '<div class="row"><div class="col-md-2 col-md-offset-1"><a href="#"><img class="imgOffers" src="'+dat.results[0].thumbnail+'"></a><p class="productTitle"><strong>'+dat.results[0].title+'</strong></p><p class="priceOffers">$ '+dat.results[0].price+
+    '</p><h4><strong>Disponibilidad: '+dat.results[0].available_quantity+'</strong></h4><a class="viewMore" href="#"><p class="toCart">View More</p></a></div><div class="col-md-2"><a href="#"><img class="imgOffers" src="'+dat.results[1].thumbnail+'"></a><p class="productTitle"><strong>'+dat.results[1].title+'</strong></p>'+
+    '<p class="priceOffers">$ '+dat.results[1].price+'</p><h4><strong>Disponibilidad: '+dat.results[1].available_quantity+'</strong></h4><a class="viewMore" href="#"><p class="toCart">View More</p></a></div><div class="col-md-2"><a href="#"><img class="imgOffers" src="'+dat.results[2].thumbnail+'">'+
+    '</a><p class="productTitle"><strong>'+dat.results[2].title+'</strong></p><p class="priceOffers">$ '+dat.results[2].price+'</p><h4><strong>Disponibilidad: '+dat.results[2].available_quantity+'</strong></h4><a class="viewMore" href="#"><p class="toCart">View More</p></a></div><div class="col-md-2"><a href="#"><img class="imgOffers"'+
+    'src="'+dat.results[3].thumbnail+'"></a><p class="productTitle"><strong>'+dat.results[3].title+'</strong></p><p class="priceOffers">$ '+dat.results[3].price+'</p><h4><strong>Disponibilidad: '+dat.results[3].available_quantity+'</strong></h4><a class="viewMore" href="#"><p class="toCart">View More</p></a></div>'+
+    '<div class="col-md-2 col-md-offset-right-1"><a href="#"><img class="imgOffers" src="'+dat.results[4].thumbnail+'"></a><p class="productTitle"><strong>'+dat.results[4].title+'</strong></p><p class="priceOffers">$ '+dat.results[4].price+'</p><h4><strong>Disponibilidad: '+dat.results[4].available_quantity+'</strong></h4>'+
+    '<a class="viewMore" href="#"><p class="toCart">View More</p></a></div></div></div>');
+
+/* Llamando a la api de mercadolibre, categoría libros */
+   fetch('https://api.mercadolibre.com/sites/MLA/search?category=MLA3025')
+
+    .then(function (respt) {
+        //Turns the the JSON into a JS object
+        return respt.json();
+    })
+    .then(function (info) {
+        //console.log(info);
+
+/* Creando en la sección libros más vistos de html un contenedor con imagenes, título, precio y disponibilidad del producto */
+    $('#sectionBooks').append('<div class="container-fluid"><div class="row"><div class="col-md-12">'+
+    '<h3>Libros más vendidos</h3></div></div></div><div class="container-fluid">'+
+    '<div class="row"><div class="col-md-2 col-md-offset-1"><a href="#"><img class="imgOffers" src="'+info.results[0].thumbnail+'"></a><p class="productTitle"><strong>'+info.results[0].title+'</strong></p><p class="priceOffers">$ '+info.results[0].price+
+    '</p><h4><strong>Disponibilidad: '+info.results[0].available_quantity+'</strong></h4><a class="viewMore" href="#"><p class="toCart">View More</p></a></div><div class="col-md-2"><a href="#"><img class="imgOffers" src="'+info.results[1].thumbnail+'"></a><p class="productTitle"><strong>'+info.results[1].title+'</strong></p><p class="priceOffers">'+
+    '$ '+info.results[1].price+'</p><h4><strong>Disponibilidad: '+info.results[1].available_quantity+'</strong></h4><a class="viewMore" href="#"><p class="toCart">View More</p></a></div><div class="col-md-2"><a href="#"><img class="imgOffers" src="'+info.results[2].thumbnail+'"></a><p class="productTitle"><strong>'+info.results[2].title+'</strong></p>'+
+    '<p class="priceOffers">$ '+info.results[2].price+'</p><h4><strong>Disponibilidad: '+info.results[2].available_quantity+'</strong></h4><a class="viewMore" href="#"><p class="toCart">View More</p></a></div><div class="col-md-2"><a href="#"><img class="imgOffers" src="'+info.results[3].thumbnail+'">'+
+    '</a><p class="productTitle"><strong>'+info.results[3].title+'</strong></p><p class="priceOffers">$ '+info.results[3].price+'</p><h4><strong>Disponibilidad: '+info.results[3].available_quantity+'</strong></h4><a class="viewMore" href="#"><p class="toCart">View More</p></a></div><div class="col-md-2 col-md-offset-right-1"><a href="#">'+
+    '<img class="imgOffers" src="'+info.results[4].thumbnail+'"></a><p class="productTitle"><strong>'+info.results[4].title+'</strong></p><p class="priceOffers">$ '+info.results[4].price+'</p><h4><strong>Disponibilidad: '+info.results[4].available_quantity+'</strong></h4><a class="viewMore" href="#"><p class="toCart">View More</p></a></div></div></div>');
+
+/* Función para crear el detalle de cada producto */
+        $('.viewMore').click(function(){
+      console.log(data.results)
+      let pDetail = event.target.parentNode.parentNode.firstChild.nextSibling.nextSibling.firstChild.textContent;
+      let iDetail = event.target.parentNode.parentNode.firstChild.firstChild.getAttribute("src");
+      let tDetail = event.target.parentNode.parentNode.firstChild.nextSibling.textContent;
+      let aDetail = event.target.parentNode.parentNode.firstChild.nextSibling.nextSibling.nextSibling.firstChild.textContent;
+ 
+/* Ocultando las demás secciones para que solo aparezca la sección de detalles */
+      $('.hr').hide();
+      $('#sectionOffers').hide(); 
+      $('#sectionSeen').hide(); 
+      $('#sectionTechnology').hide(); 
+      $('#sectionBooks').hide();
+      $('#advertising').hide();
+
+
+/* Creando la sección de detalles de producto */
+      $('#detail').append('<div class="container"><div class="row"><div class="col-md-4"><img class="imgDetail" src="'+iDetail+'">'+
+        '</div><div class="col-md-4"><h4>'+tDetail+'</h4><p>Rating: '+data.results[0].reviews.rating_average+'</p><p>Price: '+pDetail+'</p>'+
+        '<p>'+aDetail+'</p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis, libero voluptas, similique dolore dolores, aspernatur esse sint dolor'+
+        'cumque expedita dicta ducimus nostrum nemo hic commodi quisquam maxime. Molestias, consectetur.</div></div></div>');
+    
+});
+});
+});
+});
+
+
           })
 
           buttonBuy.addEventListener('click', function () {
@@ -615,100 +776,13 @@ categoriesSelect.addEventListener('change', function () {
     })
 })
 
-$(document).ready(function () {
 
-  fetch('https://api.mercadolibre.com/sites/MLA/search?category=MLA5726')
-
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (data) {
-
-      $('#sectionOffers').append('<div class="container-fluid"><div class="row"><div class="col-md-12">' +
-        '<h3>Ofertas recomendadas para ti</h3></div></div></div><div class="container-fluid">' +
-        '<div class="row"><div class="col-md-2"><a href="#"><img class="imgOffers" src="' + data.results[0].thumbnail + '"></a>' +
-        '<p class="priceOffers">$ ' + data.results[0].price + '</p><a href="#"><p class="toCart">Add to Cart</p></a></div>' +
-        '<div class="col-md-2"><a href="#"><img class="imgOffers" src="' + data.results[1].thumbnail + '"></a>' +
-        '<p class="priceOffers">$ ' + data.results[1].price + '</p><a href="#"><p class="toCart">Add to Cart</p>' +
-        '</a></div><div class="col-md-2"><a href="#"><img class="imgOffers" src="' + data.results[2].thumbnail + '">' +
-        '</a><p class="priceOffers">$ ' + data.results[2].price + '</p><a href="#"><p class="toCart">Add to Cart</p>' +
-        '</a></div><div class="col-md-2"><a href="#"><img class="imgOffers"src="' + data.results[3].thumbnail + '"></a>' +
-        '<p class="priceOffers">$ ' + data.results[3].price + '</p><a href="#"><p class="toCart">Add to Cart</p></a></div>' +
-        '<div class="col-md-3 col-md-offset-1 imgBorder"><a href="#"><img class="imgOffers imgRight"src="' + data.results[4].thumbnail +
-        '"></a><p class="priceOffers offert">Precio $ ' + data.results[4].price + '</p><strike><p class="priceOffers originalPrice">' +
-        'Precio original $ ' + data.results[4].original_price + '</p></strike><a href="#"><p class="toCart">Add to Cart</p></a></div>' +
-        '</div></div>');
-
-      $('#sectionSeen').append('<div class="container-fluid"><div class="row"><div class="col-md-12"><h3>Relacionado con los artículos que has visto' +
-        '</h3></div></div></div><div class="container-fluid"><div class="row"><div class="col-md-2"><a href="#"><img class="imgOffers" src="' + data.results[5].thumbnail + '">' +
-        '</a><p class="priceOffers">$ ' + data.results[5].price + '</p><a href="#"><p class="toCart">Add to Cart</p></a></div><div class="col-md-2">' +
-        '<a href="#"><img class="imgOffers" src="' + data.results[6].thumbnail + '"></a><p class="priceOffers">$ ' + data.results[6].price + '</p>' +
-        '<a href="#"><p class="toCart">Add to Cart</p></a></div><div class="col-md-2"><a href="#"><img class="imgOffers" src="' + data.results[7].thumbnail + '">' +
-        '</a><p class="priceOffers">$ ' + data.results[7].price + '</p><a href="#"><p class="toCart">Add to Cart</p></a></div><div class="col-md-2">' +
-        '<a href="#"><img class="imgOffers" src="' + data.results[8].thumbnail + '"></a><p class="priceOffers">$ ' + data.results[8].price + '</p><a href="#">' +
-        '<p class="toCart">Add to Cart</p></a></div><div class="col-md-3 col-md-offset-1 imgBorderTwo"><a href="#"><img class="imgOffers imgRight"' +
-        'src="' + data.results[12].thumbnail + '"></a><p class="priceOffers offert">Precio $ ' + data.results[12].price + '</p><strike><p class="priceOffers originalPrice">' +
-        'Precio original $ ' + data.results[12].original_price + '</p></strike><a href="#"><p class="toCart">Add to Cart</p></a></div></div></div>');
-
-      $('.imgOffers').click(function () {
-
-        $('.hr').hide();
-        $('#sectionOffers').hide();
-        $('#sectionSeen').hide();
-        $('#sectionTechnology').hide();
-        $('#sectionBooks').hide();
-        $('#advertising').hide();
-
-        $('#detail').append('<div class="container"><div class="row"><div class="col-md-4"><img class="imgDetail" src="' + data.results[0].thumbnail + '">' +
-          '</div><div class="col-md-4"><h4>' + data.results[0].title + '</h4><p>Rating: ' + data.results[0].reviews.rating_average + '</p><p>Price: $' + data.results[0].price + '</p>' +
-          'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis, libero voluptas, similique dolore dolores, aspernatur esse sint dolor' +
-          'cumque expedita dicta ducimus nostrum nemo hic commodi quisquam maxime. Molestias, consectetur.<p></p></div><div class="col-md-4 cart-detail">' +
-          '<a href="#" class="addCont"><img src=' + "/assets/images/shopping-cart.png" + '><p class="addToCart">Add to cart</p></a></div></div></div>');
-      })
-
-      fetch('https://api.mercadolibre.com/sites/MLA/search?all=new&q=dell')
-
-        .then(function (res) {
-          return res.json();
-        })
-        .then(function (dat) {
-
-          $('#sectionTechnology').append('<div class="container-fluid"><div class="row"><div class="col-md-12">' +
-            '<h3>Ofertas recomendadas para ti</h3></div></div></div><div class="container-fluid">' +
-            '<div class="row"><div class="col-md-2 col-md-offset-1"><a href="#"><img class="imgOffers" src="' + dat.results[0].thumbnail + '"></a><p class="priceOffers">$ ' + dat.results[0].price +
-            '</p><a href="#"><p class="toCart">Add to Cart</p></a></div><div class="col-md-2"><a href="#"><img class="imgOffers" src="' + dat.results[1].thumbnail + '"></a>' +
-            '<p class="priceOffers">$ ' + dat.results[1].price + '</p><a href="#"><p class="toCart">Add to Cart</p></a></div><div class="col-md-2"><a href="#"><img class="imgOffers" src="' + dat.results[2].thumbnail + '">' +
-            '</a><p class="priceOffers">$ ' + dat.results[2].price + '</p><a href="#"><p class="toCart">Add to Cart</p></a></div><div class="col-md-2"><a href="#"><img class="imgOffers"' +
-            'src="' + dat.results[3].thumbnail + '"></a><p class="priceOffers">$ ' + dat.results[3].price + '</p><a href="#"><p class="toCart">Add to Cart</p></a></div>' +
-            '<div class="col-md-2 col-md-offset-right-1"><a href="#"><img class="imgOffers" src="' + dat.results[4].thumbnail + '"></a><p class="priceOffers">$ ' + dat.results[4].price + '</p>' +
-            '<a href="#"><p class="toCart">Add to Cart</p></a></div></div></div>');
-
-          fetch('https://api.mercadolibre.com/sites/MLA/search?category=MLA3025')
-
-            .then(function (respt) {
-              return respt.json();
-            })
-            .then(function (info) {
-
-              $('#sectionBooks').append('<div class="container-fluid"><div class="row"><div class="col-md-12">' +
-                '<h3>Libros más vendidos</h3></div></div></div><div class="container-fluid">' +
-                '<div class="row"><div class="col-md-2 col-md-offset-1"><a href="#"><img class="imgOffers" src="' + info.results[0].thumbnail + '"></a><p class="priceOffers">$ ' + info.results[0].price +
-                '</p><a href="#"><p class="toCart">Add to Cart</p></a></div><div class="col-md-2"><a href="#"><img class="imgOffers" src="' + info.results[1].thumbnail + '"></a><p class="priceOffers">' +
-                '$ ' + info.results[1].price + '</p><a href="#"><p class="toCart">Add to Cart</p></a></div><div class="col-md-2"><a href="#"><img class="imgOffers" src="' + info.results[2].thumbnail + '"></a>' +
-                '<p class="priceOffers">$ ' + info.results[2].price + '</p><a href="#"><p class="toCart">Add to Cart</p></a></div><div class="col-md-2"><a href="#"><img class="imgOffers" src="' + info.results[3].thumbnail + '">' +
-                '</a><p class="priceOffers">$ ' + info.results[3].price + '</p><a href="#"><p class="toCart">Add to Cart</p></a></div><div class="col-md-2 col-md-offset-right-1"><a href="#">' +
-                '<img class="imgOffers" src="' + info.results[4].thumbnail + '"></a><p class="priceOffers">$ ' + info.results[4].price + '</p><a href="#"><p class="toCart">Add to Cart</p></a></div></div></div>');
-            });
-        });
-    });
-});
-
-/* -------------------------------------------- */
 
 let navbarBack = document.querySelector('.navbarBack');
 navbarBack.addEventListener('click', function () {
   let nameCategoria = event.target.getAttribute('name');
   console.log(nameCategoria);
+
   fetch('https://api.mercadolibre.com/sites/MLC/search?category=' + nameCategoria, {
       method: 'GET',
       mode: 'cors',
@@ -724,6 +798,7 @@ navbarBack.addEventListener('click', function () {
       console.log('ppppp', info);
       let resultsSearchInput = document.querySelector('.resultsSearchInput');
       resultsSearchInput.innerHTML = '';
+
       //Hacer imagenes de acuerdo a la escogencia del usuario
       let cartUp = document.querySelector(".cartUp");
       cartUp.addEventListener('click', function () {
@@ -738,6 +813,7 @@ navbarBack.addEventListener('click', function () {
         // console.log(info.results[k].title);
         // console.log(info.results[k].available_quantity);
         // console.log(info.results[k].thumbnail);
+
 
         let resultsList = document.querySelector('.resultsList');
         let divResultsInput = document.createElement('div');
@@ -755,6 +831,7 @@ navbarBack.addEventListener('click', function () {
         divTitle = document.createElement('div');
         divTitle.appendChild(pTitle);
         divTitle.className = 'divTitle';
+
 
         let priceProduc = document.createTextNode(info.results[k].price);
         let pPrice = document.createElement('p');
@@ -775,12 +852,16 @@ navbarBack.addEventListener('click', function () {
         divAvailable = document.createElement('div');
         divAvailable.appendChild(pAvailable);
 
+
         divResultsInput.appendChild(divImages);
         divResultsInput.appendChild(divTitle);
         divResultsInput.appendChild(divPrice);
         divResultsInput.appendChild(divAvailable);
 
+        // divResultsInput.appendChild(divButton);
+
         resultsSearchInput.appendChild(divResultsInput);
+
         let detailProduct = document.querySelector('.detailProduct');
 
         image.addEventListener('click', function () {
@@ -845,6 +926,7 @@ navbarBack.addEventListener('click', function () {
               buttonBuy.className = 'buttonBuy';
               divTexts.appendChild(buttonBuy);
 
+
               let precioNormal = info.results[index].original_price;
               if (precioNormal === null) {
                 let oferta = document.createTextNode('No posee oferta');
@@ -853,13 +935,20 @@ navbarBack.addEventListener('click', function () {
               }
               let precioActual = info.results[index].price;
             }
-          }
 
+
+          }
           divimageTitle.appendChild(divImag)
           divimageTitle.appendChild(divTexts)
+
+
           detailProduct.appendChild(divimageTitle);
 
           let cart = document.querySelector('cart');
+
+          // buttonBuy.addEventListener('click', function () {
+
+
           let titulo = event.target.parentNode.parentNode.firstChild.nextSibling.firstChild.textContent;
           let imagenBuy = event.target.parentNode.parentNode.firstChild.firstChild.getAttribute('src');
           console.log(imagenBuy);
@@ -893,11 +982,16 @@ navbarBack.addEventListener('click', function () {
 
           buttonBuy.addEventListener('click', function () {
 
+            let Totales = document.querySelector('.Totales');
+            Totales.style.display='inline';
             let itemNumber = document.querySelector('.item-number');
+
+
             let numerActual = itemNumber.textContent;
             let actual = parseInt(numerActual) + 1;
             itemNumber.innerHTML = '';
             itemNumber.appendChild(document.createTextNode(actual));
+
             let imag = document.createElement('img');
             imag.setAttribute('src', event.target.parentNode.parentNode.firstChild.firstChild.getAttribute('src'));
             divCart.appendChild(imag);
@@ -954,10 +1048,12 @@ navbarBack.addEventListener('click', function () {
             totalP.textContent = suma;
             document.getElementById('Enviar').value = suma;
             console.log(document.getElementById('Enviar').value);
+
           })
           buttonBuy.addEventListener('click', function () {
             let Totales = document.querySelector('.Totales');
             Totales.style.display = 'none';
+
             let imag = document.createElement('img');
             imag.setAttribute('src', event.target.parentNode.parentNode.firstChild.firstChild.getAttribute('src'));
             divCart.appendChild(imag);
@@ -1002,7 +1098,9 @@ navbarBack.addEventListener('click', function () {
             document.getElementById('Enviar').value = suma;
             console.log(document.getElementById('Enviar').value);
           })
+
         })
       }
     })
 })
+
