@@ -2,9 +2,11 @@ let acumula = 0;
 let suma = 0;
 
 
+
 function openNav() {
   document.getElementById("mySidenav").style.width = "70%";
   // document.getElementById("flipkart-navbar").style.width = "50%";
+
   document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
 }
 
@@ -32,6 +34,7 @@ fetch('https://api.mercadolibre.com/sites/MLC/search?condition=all&q=all', {
     let cartUp = document.querySelector(".cartUp");
     let resultsSearchInput = document.querySelector('.resultsSearchInput');
 
+
     cartUp.addEventListener('click', function(){
       resultsSearchInput.style.display = 'none';
 let Totales = document.querySelector('.Totales');
@@ -42,13 +45,14 @@ cartt.style.display = 'none';
 
     butt.addEventListener('click', function () {
       
+
       resultsSearchInput.innerHTML = '';
       let valueFlip = (inputSearch.value);
       for (let i = 0; i < listCateg.results.length; i++) {
         let valuesResults = (listCateg.results[i].title);
         let regex = new RegExp(valueFlip, 'i', 'g');
         if (regex.test(valuesResults) === true) {
-          
+
           let divResultsInput = document.createElement('div');
           divResultsInput.className = 'divResultsInput';
           let divImages = document.createElement('div');
@@ -65,7 +69,6 @@ cartt.style.display = 'none';
           divTitle.className = 'divTitle';
           divTitle.appendChild(pTitle);
           divTitle.className = 'divTitle';
-
 
           let priceProduc = document.createTextNode(listCateg.results[i].price);
           let simbol = document.createTextNode('$ ');
@@ -97,14 +100,18 @@ cartt.style.display = 'none';
           divResultsInput.appendChild(divTitle);
           divResultsInput.appendChild(divPrice);
           divResultsInput.appendChild(divAvailable);
-          
+
           resultsSearchInput.appendChild(divResultsInput);
 
           let detailProduct = document.querySelector('.detailProduct');
 
           image.addEventListener('click', function () {
             resultsSearchInput.style.display = 'none';
+
+            let enviar = document.querySelector('.enviar');
+            enviar.style.display = 'none';
             detailProduct.innerHTML = '';
+
             let divimageTitle = document.createElement('div');
             divimageTitle.className = 'divimageTitle';
             let divImag = document.createElement('div');
@@ -127,7 +134,6 @@ cartt.style.display = 'none';
             let ppriceDetail = document.createElement('p');
             ppriceDetail.appendChild(document.createTextNode(priceDetail));
             divTexts.appendChild(ppriceDetail);
-
 
             let availableDetail = event.target.parentNode.parentNode.firstChild.nextSibling.nextSibling.nextSibling.firstChild.textContent;
             let pavailableDetail = document.createElement('p');
@@ -161,7 +167,6 @@ cartt.style.display = 'none';
                 divTexts.appendChild(pShiping);
 
 
-
                 let buttonBuy = document.createElement('button');
                 buttonBuy.appendChild(document.createTextNode('Comprar'));
                 buttonBuy.className = 'buttonBuy';
@@ -177,17 +182,18 @@ cartt.style.display = 'none';
                 let precioActual = listCateg.results[index].price;
               }
 
+
             }
 
             divimageTitle.appendChild(divImag)
             divimageTitle.appendChild(divTexts)
 
 
+
             detailProduct.appendChild(divimageTitle);
 
             let cart = document.querySelector('cart');
 
-            
             let titulo = event.target.parentNode.parentNode.firstChild.nextSibling.firstChild.textContent;
             let imagenBuy = event.target.parentNode.parentNode.firstChild.firstChild.getAttribute('src');
             console.log(imagenBuy);
@@ -221,8 +227,15 @@ cartt.style.display = 'none';
             let itemNumber = document.querySelector('.item-number');
 
             buttonBuy.addEventListener('click', function () {
+
+
+              let Totales = document.querySelector('.Totales');
+              Totales.style.display = 'inline';
               let detailProduct = document.querySelector('.detailProduct');
-              detailProduct.style.display ='none';             
+              detailProduct.style.display = 'none';
+              let enviar = document.querySelector('.enviar');
+              enviar.style.display = 'none';
+
 
               let itemNumber = document.querySelector('.item-number');
 
@@ -277,11 +290,9 @@ cartt.style.display = 'none';
             })
 
           })
-
         }
       }
       inputSearch.value = '';
-
     })
   })
 
@@ -296,12 +307,13 @@ fetch('https://api.mercadolibre.com/sites/MLC/categories', {
     }
   })
   .then(function (respt) {
-    //Turns the the JSON into a JS object
+
     return respt.json();
   })
   .then(function (info) {
     listCategories = info;
     console.log(info);
+
 
     cartUp.addEventListener('click', function(){
       resultsSearchInput.style.display = 'none';
@@ -309,6 +321,7 @@ let Totales = document.querySelector('.Totales');
 Totales.style.display = 'inline';
 let cartt = document.querySelector('.cartt');
 cartt.style.display = 'none';
+
     });
 
     let categoriesSelect = document.querySelector('.categoriesSelect');
@@ -342,19 +355,20 @@ categoriesSelect.addEventListener('change', function () {
     .then(function (info) {
       console.log('p', info);
 
-      cartUp.addEventListener('click', function(){
+      let cartUp = document.querySelector(".cartUp");
+      let resultsSearchInput = document.querySelector('.resultsSearchInput');
+      cartUp.addEventListener('click', function () {
         resultsSearchInput.style.display = 'none';
-  let Totales = document.querySelector('.Totales');
-  Totales.style.display = 'inline';
-  let cartt = document.querySelector('.cartt');
-  cartt.style.display = 'inline';
+        let Totales = document.querySelector('.Totales');
+        Totales.style.display = 'inline';
+        let cartt = document.querySelector('.cartt');
+        cartt.style.display = 'none';
       });
 
-      let resultsSearchInput = document.querySelector('.resultsSearchInput');
       resultsSearchInput.innerHTML = '';
 
       for (let k = 0; k < info.results.length; k++) {
-        
+
         let resultsList = document.querySelector('.resultsList');
         let divResultsInput = document.createElement('div');
         divResultsInput.className = 'divResultsInput';
@@ -371,7 +385,6 @@ categoriesSelect.addEventListener('change', function () {
         divTitle = document.createElement('div');
         divTitle.appendChild(pTitle);
         divTitle.className = 'divTitle';
-
 
         let priceProduc = document.createTextNode(info.results[k].price);
         let pPrice = document.createElement('p');
@@ -392,15 +405,16 @@ categoriesSelect.addEventListener('change', function () {
         divAvailable = document.createElement('div');
         divAvailable.appendChild(pAvailable);
 
-        
+
         divResultsInput.appendChild(divImages);
         divResultsInput.appendChild(divTitle);
         divResultsInput.appendChild(divPrice);
         divResultsInput.appendChild(divAvailable);
-        
+
+
         resultsSearchInput.appendChild(divResultsInput);
 
-        
+
         let detailProduct = document.querySelector('.detailProduct');
 
         image.addEventListener('click', function () {
@@ -416,7 +430,6 @@ categoriesSelect.addEventListener('change', function () {
           divImag.className = 'divImag';
           imag.className = 'imagenP';
 
-
           let divTexts = document.createElement('div');
           let titleDetail = event.target.parentNode.parentNode.firstChild.nextSibling.firstChild.textContent;
           let ptitleDetail = document.createElement('p');
@@ -429,7 +442,6 @@ categoriesSelect.addEventListener('change', function () {
           let ppriceDetail = document.createElement('p');
           ppriceDetail.appendChild(document.createTextNode(priceDetail));
           divTexts.appendChild(ppriceDetail);
-
 
           let availableDetail = event.target.parentNode.parentNode.firstChild.nextSibling.nextSibling.nextSibling.firstChild.textContent;
           let pavailableDetail = document.createElement('p');
@@ -492,7 +504,6 @@ categoriesSelect.addEventListener('change', function () {
           console.log(imagenBuy);
 
 
-
           for (let z = 0; z < info.results.length; z++) {
             if (titulo === info.results[z].title) {
               let selectQuantity = document.createElement('select');
@@ -522,9 +533,11 @@ categoriesSelect.addEventListener('change', function () {
 
           buttonBuy.addEventListener('click', function () {
 
+
             let Totales = document.querySelector('.Totales');
             Totales.style.display='inline';
             let itemNumber = document.querySelector('.item-number');
+
 
             let numerActual = itemNumber.textContent;
             let actual = parseInt(numerActual) + 1;
@@ -587,6 +600,7 @@ categoriesSelect.addEventListener('change', function () {
             totalP.textContent = suma;
             document.getElementById('Enviar').value = suma;
             console.log(document.getElementById('Enviar').value);
+
 
           })
 
@@ -710,12 +724,64 @@ fetch('https://api.mercadolibre.com/sites/MLA/search?category=MLA5726')
 });
 
 
+          })
+
+          buttonBuy.addEventListener('click', function () {
+            let imag = document.createElement('img');
+            imag.setAttribute('src', event.target.parentNode.parentNode.firstChild.firstChild.getAttribute('src'));
+            divCart.appendChild(imag);
+            let buyTitle = event.target.parentNode.parentNode.firstChild.nextSibling.firstChild.textContent;
+            let pBuy = document.createElement('p');
+            pBuy.appendChild(document.createTextNode(buyTitle));
+            divCart.appendChild(pBuy);
+            let valueQuantity = selectQuantity.value;
+            let precioUnity = event.target.parentNode.firstChild.nextSibling.firstChild.textContent;
+            let precioClear = precioUnity.toString().replace('$ ', '');
+            console.log(precioClear);
+            let textPrecio = document.createElement('p');
+            textPrecio.appendChild(document.createTextNode(precioClear));
+            divCart.appendChild(textPrecio);
+            let quantitySelect = selectQuantity.value;
+            console.log(quantitySelect);
+            let pQuantity = document.createElement('p');
+            pQuantity.appendChild(document.createTextNode(quantitySelect));
+            divCart.appendChild(pQuantity);
+            let quantitySelec = selectQuantity.value;
+            console.log(quantitySelect);
+            let pQuantitys = document.createElement('p');
+            pQuantitys.appendChild(document.createTextNode(quantitySelect));
+            divCart.appendChild(pQuantitys);
+            cartBuy.appendChild(divCart);
+            let divTotal = document.createElement('div');
+            let Textdiv = document.createTextNode('Total: ');
+            let textTotalp = document.createElement('p');
+            textTotalp.appendChild(Textdiv);
+            let totalP = document.createElement('p');
+            totalP.appendChild(total);
+            divTotal.appendChild(textTotalp);
+            divTotal.className = 'divTotal';
+            divTotal.appendChild(totalP);
+            cartBuy.appendChild(divTotal);
+            console.log(totalP.textContent);
+            let actualTotal = totalP.textContent;
+            console.log(actualTotal);
+            suma += parseInt(actualTotal) + quantitySelect * precioClear;
+            totalP.innerHTML = '';
+            totalP.textContent = suma;
+            document.getElementById('Enviar').value = suma;
+            console.log(document.getElementById('Enviar').value);
+          })
+        })
+      }
+    })
+})
+
+
+
 let navbarBack = document.querySelector('.navbarBack');
 navbarBack.addEventListener('click', function () {
   let nameCategoria = event.target.getAttribute('name');
   console.log(nameCategoria);
-
-
 
   fetch('https://api.mercadolibre.com/sites/MLC/search?category=' + nameCategoria, {
       method: 'GET',
@@ -734,10 +800,21 @@ navbarBack.addEventListener('click', function () {
       resultsSearchInput.innerHTML = '';
 
       //Hacer imagenes de acuerdo a la escogencia del usuario
-
-
-      //Inicio
+      let cartUp = document.querySelector(".cartUp");
+      cartUp.addEventListener('click', function () {
+        resultsSearchInput.style.display = 'none';
+        let Totales = document.querySelector('.Totales');
+        Totales.style.display = 'inline';
+        let cartt = document.querySelector('.cartt');
+        cartt.style.display = 'none';
+      });
       for (let k = 0; k < info.results.length; k++) {
+        // console.log(info.results[k].price);
+        // console.log(info.results[k].title);
+        // console.log(info.results[k].available_quantity);
+        // console.log(info.results[k].thumbnail);
+
+
         let resultsList = document.querySelector('.resultsList');
         let divResultsInput = document.createElement('div');
         divResultsInput.className = 'divResultsInput';
@@ -775,15 +852,16 @@ navbarBack.addEventListener('click', function () {
         divAvailable = document.createElement('div');
         divAvailable.appendChild(pAvailable);
 
-        
+
         divResultsInput.appendChild(divImages);
         divResultsInput.appendChild(divTitle);
         divResultsInput.appendChild(divPrice);
         divResultsInput.appendChild(divAvailable);
+
         // divResultsInput.appendChild(divButton);
 
         resultsSearchInput.appendChild(divResultsInput);
-        
+
         let detailProduct = document.querySelector('.detailProduct');
 
         image.addEventListener('click', function () {
@@ -799,7 +877,6 @@ navbarBack.addEventListener('click', function () {
           divImag.className = 'divImag';
           imag.className = 'imagenP';
 
-
           let divTexts = document.createElement('div');
           let titleDetail = event.target.parentNode.parentNode.firstChild.nextSibling.firstChild.textContent;
           let ptitleDetail = document.createElement('p');
@@ -812,7 +889,6 @@ navbarBack.addEventListener('click', function () {
           let ppriceDetail = document.createElement('p');
           ppriceDetail.appendChild(document.createTextNode(priceDetail));
           divTexts.appendChild(ppriceDetail);
-
 
           let availableDetail = event.target.parentNode.parentNode.firstChild.nextSibling.nextSibling.nextSibling.firstChild.textContent;
           let pavailableDetail = document.createElement('p');
@@ -860,6 +936,7 @@ navbarBack.addEventListener('click', function () {
               let precioActual = info.results[index].price;
             }
 
+
           }
           divimageTitle.appendChild(divImag)
           divimageTitle.appendChild(divTexts)
@@ -871,11 +948,10 @@ navbarBack.addEventListener('click', function () {
 
           // buttonBuy.addEventListener('click', function () {
 
+
           let titulo = event.target.parentNode.parentNode.firstChild.nextSibling.firstChild.textContent;
           let imagenBuy = event.target.parentNode.parentNode.firstChild.firstChild.getAttribute('src');
           console.log(imagenBuy);
-
-
 
           for (let z = 0; z < info.results.length; z++) {
             if (titulo === info.results[z].title) {
@@ -905,15 +981,17 @@ navbarBack.addEventListener('click', function () {
           let itemNumber = document.querySelector('.item-number');
 
           buttonBuy.addEventListener('click', function () {
+
             let Totales = document.querySelector('.Totales');
             Totales.style.display='inline';
             let itemNumber = document.querySelector('.item-number');
+
 
             let numerActual = itemNumber.textContent;
             let actual = parseInt(numerActual) + 1;
             itemNumber.innerHTML = '';
             itemNumber.appendChild(document.createTextNode(actual));
-            
+
             let imag = document.createElement('img');
             imag.setAttribute('src', event.target.parentNode.parentNode.firstChild.firstChild.getAttribute('src'));
             divCart.appendChild(imag);
@@ -972,9 +1050,10 @@ navbarBack.addEventListener('click', function () {
             console.log(document.getElementById('Enviar').value);
 
           })
-
-
           buttonBuy.addEventListener('click', function () {
+            let Totales = document.querySelector('.Totales');
+            Totales.style.display = 'none';
+
             let imag = document.createElement('img');
             imag.setAttribute('src', event.target.parentNode.parentNode.firstChild.firstChild.getAttribute('src'));
             divCart.appendChild(imag);
@@ -1019,10 +1098,9 @@ navbarBack.addEventListener('click', function () {
             document.getElementById('Enviar').value = suma;
             console.log(document.getElementById('Enviar').value);
           })
-        
-        })
 
+        })
       }
     })
-
 })
+

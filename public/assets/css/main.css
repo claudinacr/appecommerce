@@ -1,7 +1,9 @@
+
 *{
     margin: 0;
     padding: 0;
 }
+
 
 #flipkart-navbar {
     background-color: #394447;
@@ -226,9 +228,7 @@
     color: #fff;
 }
 
-/* {
-    color: #ffffff !important;
-}*/
+
 
 a:focus,
 a:hover {
@@ -236,7 +236,9 @@ a:hover {
     text-decoration: underline;
 }
 
-img[src="assets/images/shopping-cart.png"] {
+
+img[src="/assets/images/shopping-cart.png"] {
+
     width: 1.5em;
 }
 
@@ -322,7 +324,9 @@ border: 0px solid #000000;
     justify-content: space-around;
 }
 
-img[src="assets/images/g1267.png"] {
+
+img[src="/assets/images/g1267.png"] {
+
     width: 2em;
     display: inline;
 }
@@ -365,6 +369,7 @@ border: 4px double #9DDE6A;
 
 .buttonCart{
     color: white;
+
     border: none;
     background-color: #55d13b;
     border-radius: 0px 10px 0px 10px;
@@ -411,10 +416,36 @@ margin-bottom: 1em;
 
 .cartt p{
     color: #000 !important;
+
 }
 .Arte a, .ofertas a, .tecnologia a, .hogar a, .entretenimiento a{
     color: white;
     text-decoration: none;
+
+
+}
+
+.divCart{
+    border: 1px blue solid;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+}
+
+.cartt{
+    border: 1px blue solid;
+
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+}
+
+.divTotal{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+
 }
 /* Katty */
 .imgOffers{
@@ -422,6 +453,7 @@ margin-bottom: 1em;
   margin-top: 1em;
 }
 .toCart{
+
   background-color: #55d13b;
   border-radius: 0px 10px 0px 10px;
 -moz-border-radius: 0px 10px 0px 10px;
@@ -436,6 +468,7 @@ padding-top: 0.50em;
 .viewMore{
   color: white;
   text-decoration: none;
+
 }
 .priceOffers{
   margin-left: 2em;
@@ -476,6 +509,11 @@ padding-top: 0.50em;
   width: 45em;
 }
 
+a{
+  text-decoration: none;
+  color: white;
+}
+
 .backToTop{
   margin-top: 2em;
   background-color: #57717C;
@@ -508,7 +546,9 @@ padding-top: 0.50em;
 .cards{
   background-color: white;
   margin-top: 3em;
+
   width: 12em;
+
 }
 .imgPaypal, .imgVisa, .imgMastercard{
   width: 4.5em;
@@ -521,6 +561,7 @@ padding-top: 0.50em;
   width: 20em;
 }
 .cart-detail{
+
   background-color: #55d13b;
   cursor: pointer;
   padding-top: 1em;
@@ -542,4 +583,43 @@ padding-top: 0.50em;
 .imgCart{
   margin-left: 1em;
 }
+
+
+  background-color: #FEF7BC;
+  cursor: pointer;
+  padding-top: 1em;
+  width: 10em;
+  position: relative;
+  left: 5em;
+  border: 1px solid black;
+}
+.cart-detail a{
+  text-decoration: none;
+  color: black;
+}
+.addToCart{
+  float: right;
+}
 /* --------------------------------- */
+
+.vestuario a, .Arte a, .tecnologia a, .hogar a, .entretenimiento a{
+    color: white !important;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.form{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.Totales{
+    /* border: 1px blue solid; */
+
+}
+
+.cartUp{
+    cursor: pointer;
+}
+
