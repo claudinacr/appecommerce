@@ -228,7 +228,7 @@ a:hover {
     text-decoration: underline;
 }
 
-img[src="assets/images/shopping-cart.png"] {
+img[src="/assets/images/shopping-cart.png"] {
     width: 1.5em;
 }
 
@@ -314,7 +314,7 @@ border: 0px solid #000000;
     justify-content: space-around;
 }
 
-img[src="assets/images/g1267.png"] {
+img[src="/assets/images/g1267.png"] {
     width: 2em;
     display: inline;
 }
@@ -402,6 +402,29 @@ margin-bottom: 1em;
 
 .cartt p{
     color: #000 !important;
+
+}
+
+.divCart{
+    border: 1px blue solid;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+}
+
+.cartt{
+    border: 1px blue solid;
+
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+}
+
+.divTotal{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
 }
 /* Katty */
 .imgOffers{
@@ -523,5 +546,19 @@ a{
     color: white !important;
     text-decoration: none;
     text-transform: uppercase;
+}
 
+.form{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.Totales{
+    /* border: 1px blue solid; */
+
+}
+
+.cartUp{
+    cursor: pointer;
 }
