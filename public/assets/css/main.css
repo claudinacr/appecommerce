@@ -1,3 +1,8 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
 #flipkart-navbar {
     background-color: #394447;
     color: #FFFFFF;
@@ -221,9 +226,9 @@
     color: #fff;
 }
 
-* {
+/* {
     color: #ffffff !important;
-}
+}*/
 
 a:focus,
 a:hover {
@@ -359,6 +364,7 @@ border: 4px double #9DDE6A;
 }
 
 .buttonCart{
+    color: white;
     border: none;
     background-color: #55d13b;
     border-radius: 0px 10px 0px 10px;
@@ -406,17 +412,30 @@ margin-bottom: 1em;
 .cartt p{
     color: #000 !important;
 }
+.Arte a, .ofertas a, .tecnologia a, .hogar a, .entretenimiento a{
+    color: white;
+    text-decoration: none;
+}
 /* Katty */
 .imgOffers{
   width: 14em;
   margin-top: 1em;
 }
 .toCart{
-  background-color: #FFBF00;
+  background-color: #55d13b;
+  border-radius: 0px 10px 0px 10px;
+-moz-border-radius: 0px 10px 0px 10px;
+-webkit-border-radius: 0px 10px 0px 10px;
+border: 0px solid #000000;
+width: 7em;
+height: 2em;
+margin-left: 4.5em;
+padding-left: 1em;
+padding-top: 0.50em;
+}
+.viewMore{
   color: white;
-  padding: 0.50em 2em;
-  width: 10em;
-  margin-left: 1.5em;
+  text-decoration: none;
 }
 .priceOffers{
   margin-left: 2em;
@@ -456,10 +475,7 @@ margin-bottom: 1em;
 .imgAdvertising2{
   width: 45em;
 }
-a{
-  text-decoration: none;
-  color: white;
-}
+
 .backToTop{
   margin-top: 2em;
   background-color: #57717C;
@@ -492,7 +508,7 @@ a{
 .cards{
   background-color: white;
   margin-top: 3em;
-  width: 16.5em;
+  width: 12em;
 }
 .imgPaypal, .imgVisa, .imgMastercard{
   width: 4.5em;
@@ -505,19 +521,25 @@ a{
   width: 20em;
 }
 .cart-detail{
-  background-color: #FEF7BC;
+  background-color: #55d13b;
   cursor: pointer;
   padding-top: 1em;
-  width: 10em;
+  width: 6em;
   position: relative;
-  left: 5em;
+  left: 2em;
   border: 1px solid black;
-}
-.cart-detail a{
-  text-decoration: none;
-  color: black;
 }
 .addToCart{
   float: right;
+}
+.productTitle{
+  margin-left: 2em;
+}
+.addCont{
+  text-decoration: none;
+  color: white;
+}
+.imgCart{
+  margin-left: 1em;
 }
 /* --------------------------------- */
