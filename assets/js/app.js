@@ -703,7 +703,7 @@ navbarBack.addEventListener('click', function(){
     
   })
 
-})
+});
 
 /* carrusel lucia*/
 let slideList = document.getElementById('slideList');
