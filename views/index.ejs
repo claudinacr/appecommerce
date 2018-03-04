@@ -11,6 +11,8 @@
 
   <link rel="shortcut icon" href="/assets/images/g1086.png" />
   <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/media.css">
+
 
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
@@ -69,6 +71,13 @@
     </div>
   </header>
 
+  <section>
+    <div class="container-fluid">
+      <div class="row">
+        <img src="assets/images/mlc-home-desktop-slider-picture-b2f2c69c-8a43-4948-8a01-99e5c3296f0c.jpg" alt="">
+      </div>
+    </div>
+  </section>
   <section class="resultsSearchInput">
 
   </section>
@@ -101,8 +110,14 @@
               <div class="modal-body containerCart">
 
               </div>
+
               <div class="buttonCheckout">
-                <button class="button">Calcular Total<span class="total"></span> </button>
+                <form action="/pay" method="post">
+                  <input type="text" name="total" id="prueba">
+                  <button type="submit" class="button">Checkout&nbsp;
+                    <span class="total">0</span>
+                  </button>
+                </form>
               </div>
             </div>
             <!-- modal-content -->
@@ -240,6 +255,50 @@
       </div>
     </div>
   </footer>
+
+  <div class="container">
+
+    <!-- Button to trigger modal -->
+    
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+            <h4 class="modal-title titleUnique">
+
+            </h4>
+          </div>
+          <div class="modal-body Details">
+           
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+        <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   <!-- lucia -->
   <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>

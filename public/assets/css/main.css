@@ -498,9 +498,7 @@ svg path {
     background: #D8D8D8;
 }
 
-#advertising {
-    margin-top: 20em;
-} 
+
 
 .imgAdvertising {
     width: 20em;
@@ -1005,7 +1003,7 @@ img[src='/assets/images/shopping-cart.png'] {
 
 .containerCart{
     background-color: #eef3f8;
-    min-height: 20em;
+    min-height: 25em;
     display: flex;
     flex-direction: column;
     align-self: stretch;
@@ -1122,17 +1120,31 @@ body {
 .buttonCheckout{
 display: flex;
 justify-content: center;    
+align-items: center;
+align-content: center;
+align-self: center;
+text-align: center;
+border: 1em white solid;
 }
 
 .button{
     text-align: center;
-    background-color: #3a4649;
+    background-color: #edf2f8;
     border: none;
-    width: 8em;
+    width: 10em;
     height: 2em;
-    color: white;
+    color: #3a4649;
     display: flex;
     flex-direction: row;
+    border: 2px #3a4649 solid;
+    font-weight: bold;
+    display: flex;
+justify-content: center;    
+align-items: center;
+align-content: center;
+align-self: center;
+text-align: center;
+
 }
 
 .btn-demo {
@@ -1182,8 +1194,67 @@ justify-content: center;
     color: lightcoral !important;
 }
 
+h5 {
+    display: inline-block;
+    padding: 10px;
+    background: #B9121B;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  
+  .p {
+    text-align: center;
+    padding-top: 40px;
+    font-size: 13px;
+  }
+
+.titleUnique{
+    font-weight: bold;
+    text-transform: uppercase;
+
+}
+
+.Details{
+    width: 10em;
+    display: flex;
+    flex-direction: column;
+    color: lightcoral !important;
+    text-align: center;
+    font-size: 2em;
+    justify-content: space-around;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+.divDetailPhoto{
+    border-radius: 10px 0px 10px 0px;
+    -moz-border-radius: 10px 0px 10px 0px;
+    -webkit-border-radius: 10px 0px 10px 0px;
+    border: 0px solid #000000;
+    border: 4px #65b4ea solid;
+    font-weight: bolder;
+}
 
 
+
+.hide{
+    display: none;
+}
+
+.anchorOption{
+    color:white;
+}
+
+a{
+    text-decoration: none;
+}
+
+#prueba{
+    display: none;
+}
+img[src="assets/images/mlc-home-desktop-slider-picture-b2f2c69c-8a43-4948-8a01-99e5c3296f0c.jpg"]{
+    width: 99.9%;
+}
 /* 
 CSS
 */

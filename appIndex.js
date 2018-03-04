@@ -2,6 +2,7 @@ const express = require('express');
 const ejs = require('ejs');
 const paypal = require('paypal-rest-sdk');
 let bodyParser = require('body-parser');
+var datag;
 
 paypal.configure({
   'mode': 'sandbox', // sandbox or live
@@ -18,7 +19,7 @@ app.set('view engine', 'ejs');
 app.get('/', (req, res) => res.render('index'));
   
 app.post('/pay', (req, res) => {
-  var datag = req.body.total;
+  datag = req.body.total;
   console.log(datag);
 
       
@@ -66,15 +67,14 @@ app.post('/pay', (req, res) => {
 app.get('/success', (req, res) => {
   const payerId = req.query.PayerID;
   const paymentId = req.query.paymentId;
-  const total = req.body.total;
-  console.log(total);
+  console.log('o', datag);
   
   const execute_payment_json = {
     'payer_id': payerId,
     'transactions': [{
       'amount': {
         'currency': 'USD',
-        'total': total,
+        'total': datag,
       }
     }]
   };

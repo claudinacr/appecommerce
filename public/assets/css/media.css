@@ -1,0 +1,31 @@
+@media (max-width: 549px) {
+    img[src="assets/images/g1086.png"] {
+        width: 3em;
+        margin-right: 2em;
+        margin-left: 2em;
+    }
+    .categoriesSelect {
+        width: 20em;
+        font-size: 0.5em !important;
+    }
+    
+    .thirdNav {
+        font-size: 1em !important;
+    }
+
+    .anchorOption{
+        display: none;
+    }
+    .inputSearch{
+        width: 8em !important;
+    }
+    input::-webkit-input-placeholder {
+        font-size: 0.5em;
+    }
+    .search{
+        font-size: 0.5em;
+    }
+    img[src="assets/images/mlc-home-desktop-slider-picture-b2f2c69c-8a43-4948-8a01-99e5c3296f0c.jpg" alt=""]{
+        width: 30%;
+    }
+}
