@@ -305,9 +305,17 @@ resultsSearchInput.addEventListener('click', function() {
       })
       .then(function(data) {
         console.log('f', data);
-        constructorCart(pointerEvent, data, nameSearch);
-        viewItem(data);
-        calculator();
+        let cartto = document.createElement('img');
+        cartto.className = 'cartto';
+        cartto.setAttribute('name', 'cart');
+        cartto.setAttribute('src', '/assets/images/shopping-cart.png');
+        divDetailOthers.appendChild(cartto);
+        cartto.addEventListener('click', function() {
+          countToCart();
+          constructorCart(pointerEvent, data, nameSearch);
+          viewItem(data);
+          calculator();
+        });
       });
     let pDetail = event.target.parentNode.parentNode.firstChild.nextSibling.nextSibling.firstChild.textContent;
     let iDetail = event.target.parentNode.parentNode.firstChild.firstChild.getAttribute('src');
@@ -344,16 +352,6 @@ resultsSearchInput.addEventListener('click', function() {
     Details.innerHTML = '';
     Details.appendChild(divDetailPhoto);
     Details.appendChild(divDetailOthers);
-
-    let cartto = document.createElement('img');
-    cartto.className = 'cartto';
-    cartto.setAttribute('name', 'cart');
-    cartto.setAttribute('src', '/assets/images/shopping-cart.png');
-    divDetailOthers.appendChild(cartto);
-    cartto.addEventListener('click', function() {
-
-      constructorCart(pointerEvent, data, nameSearch);
-    });
   }
 
   // FUNCIÓN PARA CREAR CONTENEDOR DE LA SECCIÓN CART y WISH
