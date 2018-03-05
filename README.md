@@ -18,3 +18,8 @@ npm install.
 9. Para comprar, hacer click en el carrito de compras que se encuentra en la barra de navegación. 
 10. Puede seleccionar mas de un artículo de su preferencia de acuerdo a su disponibilidad. 
 11. En la parte inferior se irá actualizando el total y una vez tenga listo su carrito, haga click en el botón Checkout y podrá hacer su compra mediante PayPal.  
+
+
+[Imgur](https://i.imgur.com/MnmaWc8.png)
+
+[Imgur](https://i.imgur.com/eIMuUfK.png)
