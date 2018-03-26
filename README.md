@@ -22,3 +22,6 @@ npm install.
 ![enter image description here](https://i.imgur.com/MnmaWc8.png)
 
 ![enter image description here](https://i.imgur.com/eIMuUfK.png)
+
+Desarrollado para Laboratoria
+
